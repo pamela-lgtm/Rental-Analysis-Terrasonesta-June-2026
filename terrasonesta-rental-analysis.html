@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rental Market Analysis — 4754 Terrasonesta Drive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#008C82;
+    --teal-deep:#066;
+    --gold:#D4AF50;
+    --ink:#1A1A1A;
+    --paper:#FAF8F3;
+    --card:#FFFFFF;
+    --tint:#EEF5F3;
+    --tint-line:#D8E6E2;
+    --muted:#5C6360;
+    --line:#E4DFD4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Jost',system-ui,sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- Header ---------- */
+  header.masthead{
+    padding:64px 0 40px;
+    border-bottom:2px solid var(--teal);
+  }
+  .eyebrow{
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--teal);font-weight:600;
+  }
+  .gold-rule{
+    width:46px;height:3px;background:var(--gold);margin:18px 0 22px;
+  }
+  h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    font-size:46px;
+    line-height:1.05;
+    letter-spacing:-.01em;
+    margin-bottom:6px;
+  }
+  h1 .addr{display:block;color:var(--teal);font-style:italic;font-weight:500;}
+  .sub-meta{
+    display:flex;flex-wrap:wrap;gap:8px 36px;margin-top:24px;
+    font-size:13px;color:var(--muted);
+  }
+  .sub-meta b{color:var(--ink);font-weight:500;}
+
+  /* ---------- Snapshot strip ---------- */
+  .snapshot{
+    display:grid;grid-template-columns:repeat(5,1fr);
+    gap:1px;background:var(--tint-line);
+    border:1px solid var(--tint-line);border-radius:6px;overflow:hidden;
+    margin:34px 0 8px;
+  }
+  .snapshot .cell{background:var(--card);padding:16px 14px;text-align:center;}
+  .snapshot .v{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--teal);line-height:1;}
+  .snapshot .l{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:7px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:42px 0;border-bottom:1px solid var(--line);}
+  .sec-label{
+    font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:10px;
+  }
+  h2{
+    font-family:'Cormorant Garamond',serif;font-weight:600;
+    font-size:30px;line-height:1.12;margin-bottom:16px;letter-spacing:-.01em;
+  }
+  h3{
+    font-family:'Jost',sans-serif;font-weight:600;font-size:15px;
+    letter-spacing:.01em;margin:22px 0 8px;color:var(--teal-deep);
+  }
+  p{margin-bottom:14px;color:#2b302e;}
+  p:last-child{margin-bottom:0;}
+  strong{font-weight:600;color:var(--ink);}
+  .lead{font-size:17px;}
+
+  /* ---------- Answer block (the headline number) ---------- */
+  .answer{
+    background:var(--ink);color:#fff;border-radius:10px;
+    padding:34px 34px 30px;margin:8px 0 4px;
+    position:relative;overflow:hidden;
+  }
+  .answer::after{
+    content:"";position:absolute;right:-40px;top:-40px;
+    width:160px;height:160px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,80,.22),transparent 70%);
+  }
+  .answer .k{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .answer .big{
+    font-family:'Cormorant Garamond',serif;font-weight:600;
+    font-size:60px;line-height:1;margin:10px 0 4px;
+  }
+  .answer .big span{font-size:24px;color:#9fc7c1;font-style:italic;}
+  .answer .note{color:#cfd8d5;font-size:14px;max-width:90%;}
+  .answer .floor{
+    margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);
+    display:flex;flex-wrap:wrap;gap:20px 44px;
+  }
+  .answer .floor .x .n{font-family:'Cormorant Garamond',serif;font-size:28px;color:#fff;font-weight:600;line-height:1;}
+  .answer .floor .x .t{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9fc7c1;margin-top:6px;}
+
+  /* ---------- Comps table ---------- */
+  .table-scroll{overflow-x:auto;margin-top:6px;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:560px;}
+  thead th{
+    text-align:left;font-weight:600;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);
+    padding:10px 12px;border-bottom:2px solid var(--teal);white-space:nowrap;
+  }
+  tbody td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tbody tr:last-child td{border-bottom:none;}
+  td .a{font-weight:500;color:var(--ink);}
+  td .s{display:block;font-size:11.5px;color:var(--muted);}
+  .num{font-variant-numeric:tabular-nums;}
+  tr.anchor{background:var(--tint);}
+  tr.anchor td{border-bottom:1px solid var(--tint-line);}
+  .pill{
+    display:inline-block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:600;color:#fff;background:var(--teal);
+    padding:2px 7px;border-radius:20px;margin-left:6px;vertical-align:middle;
+  }
+  .stat-row{
+    display:flex;flex-wrap:wrap;gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:18px;
+  }
+  .stat-row .s{flex:1;min-width:120px;background:var(--card);padding:14px 16px;}
+  .stat-row .s .n{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--ink);line-height:1;}
+  .stat-row .s .t{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+
+  /* ---------- Anchor callout ---------- */
+  .anchor-call{
+    border-left:3px solid var(--gold);background:var(--tint);
+    border-radius:0 8px 8px 0;padding:20px 24px;margin:22px 0 4px;
+  }
+  .anchor-call .h{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;margin-bottom:6px;}
+
+  /* ---------- Strategy / steps ---------- */
+  ul.clean{list-style:none;margin:6px 0 0;}
+  ul.clean li{position:relative;padding:0 0 12px 26px;color:#2b302e;}
+  ul.clean li::before{
+    content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;
+    background:var(--gold);border-radius:50%;
+  }
+  ul.clean li b{color:var(--ink);font-weight:600;}
+
+  .steps{counter-reset:st;margin-top:10px;}
+  .steps .step{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);}
+  .steps .step:last-child{border-bottom:none;}
+  .steps .step .n{
+    counter-increment:st;flex:0 0 auto;
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;
+    color:var(--teal);width:34px;
+  }
+  .steps .step .n::before{content:"0" counter(st);}
+  .steps .step .c h3{margin:0 0 3px;}
+  .steps .step .c p{margin:0;font-size:14.5px;}
+
+  .note-box{
+    background:var(--card);border:1px solid var(--line);border-radius:8px;
+    padding:18px 22px;margin-top:18px;
+  }
+  .note-box .t{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:6px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:34px 0 60px;}
+  .signoff{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--teal);}
+  .signoff span{display:block;font-family:'Jost',sans-serif;font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:.04em;margin-top:4px;}
+  .disclaimer{margin-top:26px;font-size:11px;line-height:1.6;color:#8a8f8c;border-top:1px solid var(--line);padding-top:18px;}
+  .tag{margin-top:18px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--gold);}
+
+  @media (max-width:680px){
+    h1{font-size:34px;}
+    h2{font-size:25px;}
+    .answer .big{font-size:46px;}
+    .snapshot{grid-template-columns:repeat(2,1fr);}
+    .wrap{padding:0 20px;}
+    header.masthead{padding:44px 0 32px;}
+  }
+  @media print{
+    body{background:#fff;font-size:12px;}
+    .answer{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    section{padding:26px 0;}
+    .answer::after,.answer .floor{break-inside:avoid;}
+    tr,section,.anchor-call,.steps .step{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Verandah Properties &middot; Long-Term Rental Analysis</div>
+    <div class="gold-rule"></div>
+    <h1>Rental Market Analysis
+      <span class="addr">4754 Terrasonesta Drive &middot; Solterra Resort</span>
+    </h1>
+    <div class="sub-meta">
+      <div>Prepared for <b>[Owner Name]</b></div>
+      <div>Prepared by <b>Pamela Syvertson, Broker/Owner</b></div>
+      <div>As of <b>June 9, 2026</b></div>
+    </div>
+  </header>
+
+  <div class="snapshot">
+    <div class="cell"><div class="v">4</div><div class="l">Bedrooms</div></div>
+    <div class="cell"><div class="v">3.5</div><div class="l">Baths</div></div>
+    <div class="cell"><div class="v">2,184</div><div class="l">Sq Ft</div></div>
+    <div class="cell"><div class="v">2015</div><div class="l">Year Built</div></div>
+    <div class="cell"><div class="v">Yes</div><div class="l">Private Pool</div></div>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:10px;">Townhome currently operating as a furnished short-term rental &middot; analysis assumes conversion to <b>unfurnished long-term</b>.</p>
+
+  <!-- Q1 -->
+  <section>
+    <div class="sec-label">The Solterra Long-Term Market</div>
+    <h2>How your community is performing for long-term rentals</h2>
+    <p class="lead">Solterra is a guard-gated resort community built primarily around short-term vacation rentals. That shapes the long-term picture in two ways worth understanding plainly.</p>
+    <p>First, the long-term <em>unfurnished</em> tenant pool inside a resort is more selective and somewhat narrower than in a standard residential subdivision — fewer renters are seeking a year-round home inside a vacation destination. Second, that same dynamic is exactly why the unfurnished long-term lane is a real opportunity: it is currently the larger share of long-term listings in the area (roughly seven in ten), and it is the specific niche we specialize in.</p>
+    <p>Across comparable four-bedroom leases in Solterra and the immediate Davenport corridor over the last several months, leased rents have ranged from <strong>$2,200 to $3,000</strong>, with a median of $2,500. Just as important as price is pace: these homes took an <strong>average of 71 days</strong> to lease, with a median of 79. That is the market's default speed at typical pricing and condition — and it is the number our approach is built to beat.</p>
+  </section>
+
+  <!-- Comps -->
+  <section>
+    <div class="sec-label">Comparable Leased Rentals</div>
+    <h2>What actually leased — and how fast</h2>
+    <p>Five recently leased four-bedroom comparables. The truest match is highlighted: it sits on your own street, in your community, same year, same square footage, same layout.</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Address</th><th>BR / BA</th><th>Yr</th><th class="num">Sq Ft</th><th class="num">Leased</th><th class="num">$/Sq Ft</th><th class="num">Days</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="anchor">
+            <td><span class="a">4775 Terrasonesta Dr<span class="pill">Your twin</span></span><span class="s">Oakmont Twnhms / Solterra</span></td>
+            <td>4 / 3.5</td><td>2015</td><td class="num">2,184</td><td class="num"><strong>$2,200</strong></td><td class="num">$1.01</td><td class="num">79</td>
+          </tr>
+          <tr>
+            <td><span class="a">235 Villa Domani Cir</span><span class="s">Villa Domani &middot; leased 120% of ask</span></td>
+            <td>4 / 3.5</td><td>2022</td><td class="num">2,205</td><td class="num">$3,000</td><td class="num">$1.36</td><td class="num">59</td>
+          </tr>
+          <tr>
+            <td><span class="a">2606 Rosemont Cir</span><span class="s">Rosemont Woods &middot; 5 BR</span></td>
+            <td>5 / 4.5</td><td>2016</td><td class="num">2,333</td><td class="num">$2,850</td><td class="num">$1.22</td><td class="num">26</td>
+          </tr>
+          <tr>
+            <td><span class="a">907 Wildflower Rd</span><span class="s">Wildflower Ridge</span></td>
+            <td>4 / 3</td><td>2006</td><td class="num">2,218</td><td class="num">$2,500</td><td class="num">$1.13</td><td class="num">103</td>
+          </tr>
+          <tr>
+            <td><span class="a">203 Granada Blvd</span><span class="s">Aldea Reserve</span></td>
+            <td>4 / 3</td><td>2006</td><td class="num">2,059</td><td class="num">$2,350</td><td class="num">$1.14</td><td class="num">89</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stat-row">
+      <div class="s"><div class="n">$2,500</div><div class="t">Median Leased</div></div>
+      <div class="s"><div class="n">$2,580</div><div class="t">Average Leased</div></div>
+      <div class="s"><div class="n">100%</div><div class="t">Median Sale / List</div></div>
+      <div class="s"><div class="n">79</div><div class="t">Median Days on Market</div></div>
+    </div>
+
+    <div class="anchor-call">
+      <div class="h">The number that matters most</div>
+      <p style="margin:0;">Your direct twin at <strong>4775 Terrasonesta</strong> leased at <strong>$2,200</strong> — full asking price — but it took <strong>79 days</strong>. That gap between a fair price and a slow lease is the whole story. It tells us what the property is worth, and it tells us that price alone doesn't move a home quickly. Condition, presentation, and pricing discipline do.</p>
+    </div>
+  </section>
+
+  <!-- Q2 -->
+  <section>
+    <div class="sec-label">Recommended Rent &amp; 30-Day Outlook</div>
+    <h2>What we expect to achieve — and the floor you can count on</h2>
+    <div class="answer">
+      <div class="k">Recommended launch rent</div>
+      <div class="big">$2,350<span> / month</span></div>
+      <p class="note">Positioned just above your twin to leave negotiating room, while staying competitive for a fast placement. Expected lease band: <strong style="color:#fff;">$2,250&ndash;$2,350</strong>.</p>
+      <div class="floor">
+        <div class="x"><div class="n">$2,200</div><div class="t">Conservative 30-day minimum</div></div>
+        <div class="x"><div class="n">&le; 21 days</div><div class="t">Our placement target</div></div>
+        <div class="x"><div class="n">Unfurnished</div><div class="t">Required condition</div></div>
+      </div>
+    </div>
+    <p style="margin-top:22px;">To answer your question directly: based on the data and current conditions, a realistic <strong>minimum we expect to achieve within 30 days is $2,200</strong> for a show-ready, unfurnished unit — the figure your identical neighbor proved. With professional presentation and your private pool, we believe <strong>$2,250&ndash;$2,350</strong> is the more likely outcome.</p>
+    <p>One honest caveat that runs through everything below: these numbers and timelines assume the property is fully unfurnished and show-ready before it lists. That condition is not a formality — it is the single biggest lever on both the rent achieved and the speed of the lease.</p>
+  </section>
+
+  <!-- Q3 -->
+  <section>
+    <div class="sec-label">Pool &amp; Pest Maintenance</div>
+    <h2>Keeping quality in your hands, not the tenant's</h2>
+    <p>You're right to want pool and pest care controlled rather than delegated to a tenant — that instinct protects the asset and aligns perfectly with how we operate. Here's how we recommend structuring it.</p>
+    <h3>Retain the service; we coordinate the vendors</h3>
+    <p>We engage and oversee your preferred pool and pest providers directly, so the work is done on schedule and to standard, and never depends on a tenant's diligence. The service costs themselves &mdash; roughly <strong>$100/month pool and $30/month pest</strong> &mdash; remain owner expenses, as vendor costs always are.</p>
+    <h3>Build it into one clean rent number</h3>
+    <p>Rather than itemizing $130 in monthly add-on fees on top of rent, we recommend folding that cost into a single, market-competitive rent figure. A tenant compares one number against every other listing; visible mandatory surcharges raise the effective cost, invite friction, and slow leasing — the opposite of our 21-day goal. One number keeps you competitive while you retain full control of the service.</p>
+    <div class="note-box">
+      <div class="t">What's included under management</div>
+      <p style="margin:0;font-size:14.5px;">Coordination and oversight of these vendors falls under our management service; the specific line-item inclusions for your selected plan will be confirmed with you in writing before anything is finalized.</p>
+    </div>
+  </section>
+
+  <!-- Q4 -->
+  <section>
+    <div class="sec-label">Transition &amp; Show-Ready Path</div>
+    <h2>From short-term program to a 21-day lease</h2>
+    <p>We completely understand the 60-day notice required to wind your property out of its short-term program — that timeline is yours to set, and we'll plan around it.</p>
+    <p>One thing we want to be transparent about up front, because it's central to how we deliver results: <strong>we don't list or show a property while it's still operating as a furnished short-term rental.</strong> A home shown furnished, between guest bookings, can't be presented as the unfurnished long-term residence it will become — and showing it that way would undercut both the rent and the speed we're aiming for. Our 21-day clock, and the rent figures above, begin the day the property is unfurnished and show-ready.</p>
+    <p>So the sequence we'd map together looks like this:</p>
+    <div class="steps">
+      <div class="step"><div class="n"></div><div class="c"><h3>Give notice to the short-term program</h3><p>Your 60-day window begins; we align our preparation to your target vacancy date.</p></div></div>
+      <div class="step"><div class="n"></div><div class="c"><h3>Fully vacate &amp; de-furnish</h3><p>The property is cleared, deep-cleaned, and returned to an unfurnished long-term presentation.</p></div></div>
+      <div class="step"><div class="n"></div><div class="c"><h3>Show-ready prep &amp; professional marketing</h3><p>We confirm the property meets our Show-Ready Standard, then capture professional photography and build the listing.</p></div></div>
+      <div class="step"><div class="n"></div><div class="c"><h3>Launch &mdash; and the 21-day target begins</h3><p>The property goes live unfurnished, priced to the market, and the placement clock starts.</p></div></div>
+    </div>
+  </section>
+
+  <!-- Why / next -->
+  <section>
+    <div class="sec-label">Why This Works</div>
+    <h2>The standard is the strategy</h2>
+    <p>Your neighbor's 79 days at full price isn't a fluke — it's what happens when a sound property lists without the discipline that moves it quickly. Our approach is simple and it is the reason we hold every property to a show-ready, unfurnished standard before we begin:</p>
+    <ul class="clean">
+      <li><b>Show-ready condition</b> self-selects for a well-qualified, respectful tenant — the renter who walks into a clearly cared-for property and treats it that way.</li>
+      <li><b>Disciplined, market-true pricing</b> &mdash; launching at $2,350 with a pre-planned adjustment if the first week's traffic is soft &mdash; keeps you ahead of the homes that sit.</li>
+      <li><b>Professional presentation and active marketing</b> put your property in front of the right tenant pool from day one.</li>
+    </ul>
+    <p style="margin-top:16px;">This is a partnership, not a transaction — and it's why we're intentionally selective about the properties we take on. When the foundation is right, the result you're asking for follows.</p>
+  </section>
+
+  <footer>
+    <div class="signoff">Pamela Syvertson
+      <span>Broker/Owner &middot; Verandah Properties &middot; pamela@verandahproperties.com</span>
+    </div>
+    <div class="tag">The marriage, not the sprint.</div>
+    <div class="disclaimer">
+      This is an opinion of value or Comparative Market Analysis and should not be considered an appraisal. In preparing it, the guidelines for development of an appraisal contained in the Uniform Standards of Professional Appraisal Practice of the Appraisal Foundation have not been followed. Rent figures and timelines are estimates based on current market data and assume the property is delivered unfurnished and show-ready prior to listing; they are not a guarantee of a specific rent or lease date. Comparable data sourced from MLS, current as of June 9, 2026.
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
